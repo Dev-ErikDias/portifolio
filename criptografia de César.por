@@ -8,7 +8,7 @@ programa
 
 	funcao inicio()
 	{
-		escreva("Deseja criptografar ou ecriptografar?\n")
+		escreva("Deseja criptografar ou descriptografar?\n")
 		leia(res)
 
 		se(res == "criptografar")
@@ -17,10 +17,10 @@ programa
 		escreva("Qual a frase a ser criptografada?")
 		leia(frase)
 		}
-		senao se(res == "ecriptografar")
+		senao se(res == "descriptografar")
 		{
 		limpa()
-		escreva("Qual a frase a ser ecriptografada?")
+		escreva("Qual a frase a ser descriptografada?")
 		leia(frase)
 		}
 		limpa()	
@@ -31,9 +31,9 @@ programa
 		{
 			criptografar()
 		}
-		senao se(res == "ecriptografar")
+		senao se(res == "descriptografar")
 		{
-			ecriptografar()
+			descriptografar()
 		}
 	}
 
@@ -64,21 +64,29 @@ programa
 						
 	}
 
-	funcao ecriptografar()
+	funcao descriptografar()
 	{
+		inteiro numeroLetras = t.numero_caracteres(frase)
 		limpa()
-		escreva("Teste")
+		escreva("A frase tem ", numeroLetras, " letras. \n")
+		para(inteiro i=0; i < numeroLetras; i++){
+			caracter letra = t.obter_caracter(frase, i)
+
+			//Posição da letra no alfabeto!!!!!!!!!!!!!
+			para(inteiro j=0; j <= 26; j++){
+					se(letra == ' ')
+					{
+						escreva(" ")
+						pare
+					}
+					senao se(letra == alfabeto[j])
+					{
+						inteiro posicaoCriptografada = ((j + chave) - numeroLetras) % 26
+
+						escreva(alfabeto[posicaoCriptografada])					
+						pare
+					}
+				}			
+		}
 	}
 }
-
-/* $$$ Portugol Studio $$$ 
- * 
- * Esta seção do arquivo guarda informações do Portugol Studio.
- * Você pode apagá-la se estiver utilizando outro editor.
- * 
- * @POSICAO-CURSOR = 41; 
- * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {alfabeto, 4, 11, 8};
- * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
- * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
- */
