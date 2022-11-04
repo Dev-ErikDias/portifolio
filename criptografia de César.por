@@ -81,7 +81,7 @@ programa
 					}
 					senao se(letra == alfabeto[j])
 					{
-						inteiro posicaoCriptografada = ((j + chave) - numeroLetras) % 26
+						inteiro posicaoCriptografada = ((j - chave) + 26) % 26
 
 						escreva(alfabeto[posicaoCriptografada])					
 						pare
