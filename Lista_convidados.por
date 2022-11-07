@@ -1,6 +1,7 @@
 programa
 {
 inclua biblioteca Util --> u
+inclua biblioteca Texto --> t
 	cadeia convidados[100]
 	inteiro opcao  
 	inteiro c = 0
@@ -9,6 +10,10 @@ inclua biblioteca Util --> u
 	cadeia rem
 	logico ver
 	inteiro cont = 0
+	caracter l1
+	caracter l2
+	inteiro nl1
+	inteiro nl2
 	funcao inicio()
 	{
 	 faca {
@@ -75,9 +80,11 @@ inclua biblioteca Util --> u
 						}
 				}
 				escreva("Ainda tem ", 100 - cont, " vagas para convidados!")
+				u.aguarde(1000)
 				pare
 
 			caso 3:
+			faca{
 				limpa()
 				escreva("Remover\n")
 				escreva("Nome que deseja remover: ")
@@ -85,10 +92,33 @@ inclua biblioteca Util --> u
 				para(inteiro i=0; i < 100; i++){
 					se(convidados[i] == rem)
 					{
+						ver = verdadeiro 
 						convidados[i] = ""
 						cont -= 1
+						pare
+					}
+					senao
+					{
+						ver = falso
 					}
 				}
+				nl1 = t.numero_caracteres(rem)
+				para(inteiro i=0; i < nl1; i++){
+					l1 = t.obter_caracter(rem, i)
+					nl2 = t.numero_caracteres(convidados[i])
+						para(inteiro j=0; j < nl2; j++){
+							l2 = t.obter_caracter(convidados[i],j)
+						}
+					
+				}
+				
+
+				se(ver == falso)
+				{
+					escreva("O convidado não foi encontrado.")
+					u.aguarde(1000)
+				}
+			}enquanto(ver == falso)
 				pare
 
 			caso 4:
