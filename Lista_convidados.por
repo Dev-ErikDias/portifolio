@@ -8,6 +8,7 @@ inclua biblioteca Util --> u
 	cadeia apa
 	cadeia rem
 	logico ver
+	inteiro cont = 0
 	funcao inicio()
 	{
 	 faca {
@@ -36,6 +37,7 @@ inclua biblioteca Util --> u
 					se(convidados[i] == "")
 					{
 						convidados[i] = nome
+						cont += 1
 						pare
 					}
 					
@@ -72,7 +74,7 @@ inclua biblioteca Util --> u
 							pare
 						}
 				}
-				
+				escreva("Ainda tem ", 100 - cont, " vagas para convidados!")
 				pare
 
 			caso 3:
@@ -84,6 +86,7 @@ inclua biblioteca Util --> u
 					se(convidados[i] == rem)
 					{
 						convidados[i] = ""
+						cont -= 1
 					}
 				}
 				pare
@@ -104,15 +107,3 @@ inclua biblioteca Util --> u
 	   
 	}
 }
-
-/* $$$ Portugol Studio $$$ 
- * 
- * Esta seção do arquivo guarda informações do Portugol Studio.
- * Você pode apagá-la se estiver utilizando outro editor.
- * 
- * @POSICAO-CURSOR = 435; 
- * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {convidados, 4, 8, 10};
- * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
- * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
- */
