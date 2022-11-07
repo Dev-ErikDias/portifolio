@@ -3,6 +3,7 @@ programa
 inclua biblioteca Util --> u
 	cadeia convidados[100]
 	inteiro opcao  
+	inteiro c = 0
 	cadeia nome
 	cadeia apa
 	cadeia rem
@@ -22,6 +23,11 @@ inclua biblioteca Util --> u
 			escolha(opcao){
 	
 			caso 1: 
+				se(c == 100)
+				{
+					escreva("Lista cheia")
+					pare
+				}
 				limpa()
 				escreva("Cadastrar\n")
 				escreva("Qual o nome do convidado? ")
@@ -34,9 +40,7 @@ inclua biblioteca Util --> u
 					}
 					
 				}
-				
-				
-
+				c += 1
 				pare
 				
 			caso 2:
