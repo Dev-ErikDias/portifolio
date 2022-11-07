@@ -1,6 +1,6 @@
 programa
 {
-inclua biblioteca Util --> u
+	inclua biblioteca Util --> u
 	cadeia convidados[100]
 	inteiro opcao  
 	inteiro c = 0
